@@ -1,5 +1,11 @@
 .color-cards {
-  width: 15vw;
-  height: 15vh;
+  width: 200px;
+  height: 200px;
   background-color: lightskyblue;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-content: center;
 }

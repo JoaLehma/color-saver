@@ -55,9 +55,9 @@ function App() {
   ];
 
   return (
-    <div className="app">
+    <div>
       <h1>Color Saver App</h1>
-      <div className="color-cards">
+      <div className="app">
         {colors.map((color) => (
           <ColorCard
             key={color.id}
