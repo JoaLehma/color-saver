@@ -1,4 +1,5 @@
 import "./App.css";
+import ColorCard from "./components/ColorCard";
 
 function App() {
   return (
