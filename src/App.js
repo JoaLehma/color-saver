@@ -1,71 +1,75 @@
 import "./App.css";
 import ColorCard from "./components/ColorCard";
-import Form from "./components/Form"
+import Form from "./components/Form";
 import React, { useState } from "react";
+import { nanoid } from "nanoid";
 
 function App() {
+  const [colors, setColors] = useState([
+    {
+      id: nanoid(),
+      colorCode: "#3f2051",
+    },
 
-const [colors, setColors] = useState([
-  {
-    id: "100",
-    colorCode: "#3f2051",
-  },
+    {
+      id: nanoid(),
+      colorCode: "#8b2e6c",
+    },
 
-  {
-    id: "101",
-    colorCode: "#8b2e6c",
-  },
+    {
+      id: nanoid(),
+      colorCode: "#2b96c8",
+    },
 
-  {
-    id: "102",
-    colorCode: "#2b96c8",
-  },
+    {
+      id: nanoid(),
+      colorCode: "#2bcac8",
+    },
 
-  {
-    id: "103",
-    colorCode: "#2bcac8",
-  },
+    {
+      id: nanoid(),
+      colorCode: "#a7e2e2",
+    },
 
-  {
-    id: "104",
-    colorCode: "#a7e2e2",
-  },
+    {
+      id: nanoid(),
+      colorCode: "#dfaea0",
+    },
 
-  {
-    id: "105",
-    colorCode: "#dfaea0",
-  },
+    {
+      id: nanoid(),
+      colorCode: "#d9c97f",
+    },
 
-  {
-    id: "106",
-    colorCode: "#d9c97f",
-  },
+    {
+      id: nanoid(),
+      colorCode: "#1a497a",
+    },
 
-  {
-    id: "107",
-    colorCode: "#1a497a",
-  },
+    {
+      id: nanoid(),
+      colorCode: "#156543",
+    },
 
-  {
-    id: "108",
-    colorCode: "#156543",
-  },
+    {
+      id: nanoid(),
+      colorCode: "#798722",
+    },
+  ]);
 
-  {
-    id: "109",
-    colorCode: "#798722",
-  },
-]);
-
+  function addNewColor(newColor) {
+    setColors([...colors, { id: nanoid(), colorCode: newColor }]);
+    console.log(setColors);
+  }
 
   return (
     <div>
       <h1>Color Saver App</h1>
-      <Form />
+      <Form addColor={addNewColor} />
       <div className="app">
         {colors.map((color) => (
           <ColorCard
-            key={color.id}
+            key={nanoid()}
             text={color.colorCode}
             color={color.colorCode}
           />

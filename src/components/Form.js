@@ -1,32 +1,39 @@
 import "./Form.css";
-import React, { useState } from "react";
+import { useState } from "react";
 
-export default function Form() {
-  const [inputValue, setInputValue] = useState("#dd0e72");
-
-  function handleInputValue(event) {
-    setInputValue(event.target.value);
-  }
+export default function Form({ addColor }) {
+  const [color, setColor] = useState("#505050");
 
   return (
-    <form className="form">
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        addColor(color);
+      }}
+      className="form"
+      style={{ backgroundColor: color }}
+    >
       <label for="color">ColorPicker:</label>
       <input
         type="color"
         id="color"
-        value={inputValue}
-        onChange={handleInputValue}
+        value={color}
+        onChange={(event) => {
+          setColor(event.target.value);
+        }}
       />
       <hr />
       <label for="hex">Hex-Farbcode:</label>
       <input
         id="hex"
         type="text"
-        value={inputValue}
-        onChange={handleInputValue}
+        value={color}
+        onChange={(event) => {
+          setColor(event.target.value);
+        }}
       />
       <hr />
-      <button>Add</button>
+      <button type="submit">Add</button>
     </form>
   );
 }
